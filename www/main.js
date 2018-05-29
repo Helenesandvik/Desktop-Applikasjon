@@ -9,7 +9,29 @@ function start(event){
     
     var bilde = document.querySelector(".bilde");
     bilde.setAttribute('src', 'img/stillbilde_bg.gif');
+    setVisible(document.getElementById('info_txt'), true);
+    setVisible(document.getElementById('startBtn'), false);
+    changeTxt('The pasta is undercooked');
+    setTimeout(changeTxt, 7000, 'Al dente');
+    setTimeout(changeTxt, 12000, 'Overcooked');
 }
+
+function setVisible(element,visible){
+    if (visible){
+        element.className = element.className.replace('hidden','');
+        element.className += element.className.length > 0 ? ' visible' : 'visible'
+    }
+    else {
+        element.className = element.className.replace('visible','');
+        element.className += element.className.length > 0 ? ' hidden' : 'hidden'
+    }
+}
+      
+function changeTxt (message){
+    document.getElementById('info_txt').innerHTML = message;
+}
+
+
 
 
 /*

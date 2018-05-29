@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
 }
 
 
@@ -17,6 +17,10 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     text-align: center;
+}
+
+#info_txt {
+    color:red;
 }
 
 .wrapper {}
@@ -50,4 +54,14 @@ body {
     position: absolute;
     left: 0;
     top: 0;
+    z-index:-1;
+}
+
+.visible{
+    display: inline;
+}
+
+
+.hidden{
+    display: none;
 }
