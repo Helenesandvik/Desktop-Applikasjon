@@ -65,3 +65,29 @@ body {
 .hidden{
     display: none;
 }
+
+#canvas {
+    background-color: gray;
+    border-radius: 50%;
+    opacity: .7;
+}
+.spinnable{
+    /* MINUTES */
+    -webkit-animation:spin 720s infinite linear;
+    /* SECONDS */
+    /* -webkit-animation:spin 12s infinite linear; */
+}
+
+#triangle{
+    width:20px;
+    height: 20px;
+}
+
+@-webkit-keyframes spin{
+    0% {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform:rotate(-360deg);}
+}
+
+
+
+
