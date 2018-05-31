@@ -1,5 +1,3 @@
-// Klikker på startknappen og første del begynner å telle ned samtidig som startknappen 
-
 var button = document.querySelector(".button");
 button.addEventListener("click", start);
 
@@ -13,89 +11,81 @@ drawNumbers(ctx, radius);
 //min for minutes, sec for seconds
 var timeType = 'min';
 
-function start(event){
+function start(event) {
     var bilde = document.querySelector(".bilde");
     bilde.setAttribute('src', 'img/stillbilde_bg.gif');
     var cs = document.getElementById('canvas');
     setVisible(document.getElementById('info_txt'), true);
     setVisible(document.getElementById('startBtn'), false);
-    setVisible(document.getElementById('triangle'),true);
-    
+    setVisible(document.getElementById('triangle'), true);
     setVisible(cs, true);
-    changeTxt('The pasta is undercooked');
-    setTimeout(changeTxt, getWaitingTime(8, timeType), 'Al dente');
-    setTimeout(changeTxt, getWaitingTime(10, timeType), 'Overcooked');
+    
+    changeTxt('UNDERCOOKED');
+    
+    setTimeout(changeTxt, getWaitingTime(8, timeType), 'AL DENTE');
+    setTimeout(changeTxt, getWaitingTime(10, timeType), 'OVERCOOKED');
     addClass(cs, 'spinnable');
-    setTimeout(stop, getWaitingTime(12, timeType));   
+    setTimeout(stop, getWaitingTime(12, timeType));
 }
 
+//Convert s or min to ms
 function getWaitingTime(timeInSeconds, type) {
     if (type == 'sec')
         return timeInSeconds * 1000;
     else if (type == 'min')
         return (timeInSeconds * 1000) * 60;
-} 
+}
 
 function stop() {
     var cs = document.getElementById('canvas')
     removeClass(cs, 'spinnable');
     setVisible(document.getElementById('info_txt'), false);
     setVisible(document.getElementById('startBtn'), true);
-    setVisible(document.getElementById('triangle'),false);
+    setVisible(document.getElementById('triangle'), false);
     setVisible(cs, false);
-    
+
     var bilde = document.querySelector(".bilde");
     bilde.setAttribute('src', 'img/stillbilde_bg.png');
 }
 
-function setVisible(element,visible){
-    if (visible){
+function setVisible(element, visible) {
+    if (visible) {
         removeClass(element, 'hidden');
         addClass(element, 'visible');
-    }
-    else {
+    } else {
         removeClass(element, 'visible');
         addClass(element, 'hidden');
-        
     }
 }
 
-function addClass(element, cssClass){
+function addClass(element, cssClass) {
     element.className += element.className.length > 0 ? ' ' + cssClass : cssClass;
 }
 
 function removeClass(element, cssClass) {
-    element.className = element.className.replace(cssClass,'');
+    element.className = element.className.replace(cssClass, '');
 }
 
-function changeTxt (message){
+function changeTxt(message) {
     document.getElementById('info_txt').innerHTML = message;
 }
 
 //Source: https://www.w3schools.com/graphics/canvas_clock_numbers.asp
 function drawNumbers(ctx, radius) {
-  var ang;
-  var num;
-  ctx.font = radius*0.15 + "px arial";
-  ctx.textBaseline="middle";
-  ctx.textAlign="center";
-  for(num = 1; num < 13; num++){
-    ang = num * Math.PI / 6;
-    
-    if(num < 8)
-        ctx.fillStyle = 'red';
-    else if(num > 9)
-        ctx.fillStyle ='black';
-    else 
-        ctx.fillStyle ='green';
-      
-    ctx.rotate(ang);
-    ctx.translate(0, -radius*0.85);
-    ctx.rotate(-ang);
-    ctx.fillText(num.toString(), 0, 0);
-    ctx.rotate(ang);
-    ctx.translate(0, radius*0.85);
-    ctx.rotate(-ang);
-  }
+    var ang;
+    var num;
+    ctx.font = radius * 0.15 + "px arial";
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "center";
+    for (num = 1; num < 13; num++) {
+        ang = num * Math.PI / 6;
+        ctx.fillStyle = 'white';
+        ctx.rotate(ang);
+        ctx.translate(0, -radius * 0.85);
+        ctx.rotate(-ang);
+        ctx.fillText(num.toString(), 0, 0);
+        ctx.rotate(ang);
+        ctx.translate(0, radius * 0.85);
+        ctx.rotate(-ang);
+    }
 }
-

@@ -6,33 +6,19 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-
-   
-
-    <title>Boil pasta</title>
-
+    <title>Boil pasta with a timer</title>
 </head>
 
-
-
 <body>
-
     <div class="wrapper">
-
-        <div>
-            <input type="button" value="Start boiling pasta" class="button" id="startBtn"/>
+        <input type="button" value="Start boiling pasta" class="button centered" id="startBtn" />
+        <div id="timer" class="centered">
             <img src="img/triangle.png" id="triangle" class="hidden" />
-            <canvas id="canvas" class="hidden" width="600" height="600"></canvas>
-            <p id="info_txt" class="hidden">Test</p>
-            <img src="img/stillbilde_bg.png" class="bilde" alt="Boil pasta"/>
-            
+            <p id="info_txt" class="hidden centered">Info about the cooking process</p>
+            <canvas id="canvas" class="hidden"  width="600" height="600"></canvas>
         </div>
-
-
+        <img src="img/stillbilde_bg.png" class="bilde" alt="Boil pasta" />
     </div>
-    
-    
-    
     <script src="main.js"></script>
 </body>
 
